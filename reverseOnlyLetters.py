@@ -1,31 +1,15 @@
 class Solution:
     def reverseOnlyLetters(self, s: str) -> str:
-        onlyLetters = []
-        nonLetters = [None] * len(s)
-        idx = 0
-        for i in s:
-            if i.isalpha() == True:
-                onlyLetters.append(i)
-            else:
-                nonLetters[idx] = i
-            idx += 1
+        temp = [i for i in s if i.isalpha()][::-1]
         
-        idx = 0
-        string = ""
+        result = ""
+        index = 0
         
-        for i in onlyLetters[::-1]:
-            for j in nonLetters:
-                if (nonLetters[idx] != None):
-                    string += nonLetters[idx]
-                    idx += 1
-            string += i
-            idx += 1
-    
-        for i in nonLetters:
-            if (idx >= len(nonLetters)):
-                break
+        for i in range(len(s)):
+            if s[i].isalpha():
+                result += temp[index]
+                index +=1
             else:
-                if (nonLetters[idx] != None):
-                    string += nonLetters[idx]
-                    idx += 1
-        return string
+                result += s[i]
+                
+        return result
