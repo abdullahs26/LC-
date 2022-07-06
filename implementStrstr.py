@@ -13,6 +13,7 @@ class Solution:
                 if haystack[start: end] == needle:
                     return start
                 
+                
                 else:
                     start += 1
                     end = (start + len(needle))
