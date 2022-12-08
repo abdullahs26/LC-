@@ -1,14 +1,22 @@
-class Solution:
-    def isValid(self, s: str) -> bool:
-        Map = {")": "(", "]": "[", "}": "{"}
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        closeToOpen = {")" : "(", "]" : "[", "}" : "{"}
         stack = []
 
-        for c in s:
-            if c not in Map:
-                stack.append(c)
-                continue
-            if not stack or stack[-1] != Map[c]:
-                return False
-            stack.pop()
-
-        return not stack
+        for n in s:
+            if n in closeToOpen:
+                if stack and stack[-1] == closeToOpen[n]:
+                    stack.pop()
+                else:
+                    return False
+            else:
+                stack.append(n)
+        
+        if stack:
+            return False
+        else:
+            return True
