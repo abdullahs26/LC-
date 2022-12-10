@@ -9,8 +9,10 @@ class Solution(object):
 
         for n in s:
             if n in closeToOpen:
+                # Check if top of stack is a closing bracket and stack is not empty.
                 if stack and stack[-1] == closeToOpen[n]:
                     stack.pop()
+                # If stack does not matching closing bracket, return False
                 else:
                     return False
             else:
