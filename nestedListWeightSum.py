@@ -1,3 +1,4 @@
+# Recursive soln
 class Solution(object):
     def depthSum(self, nestedList):
         sum = dfs(nestedList, 1)
