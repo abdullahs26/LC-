@@ -10,10 +10,11 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
+
         # Store head of linkedlist, use curr to iterate
+        carry = 0
         temp = ListNode()
         curr = temp
-        carry = 0
 
         while l1 or l2 or carry:
             value1 = l1.val if l1 else 0
